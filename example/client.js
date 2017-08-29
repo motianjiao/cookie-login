@@ -2,7 +2,6 @@ const client = require('../index.js');
 const db = require('./model/db');
 const mongoose = require('mongoose');
 
-
 const options = {
     findFunc: (table, options, fail, succ) => {
         mongoose.model(table).find(options, (err, rs) => {
@@ -41,8 +40,6 @@ const options = {
     }
 };
 
-
-console.log(client);
 const DB = new client.DB(options);
 const userRouter = new client.UserRouter(DB, (req, res, rs) => {
     res.json(rs);
