@@ -44,6 +44,8 @@ const options = {
 
 console.log(client);
 const DB = new client.DB(options);
-const userRouter = new client.UserRouter(DB);
+const userRouter = new client.UserRouter(DB, (req, res, rs) => {
+    res.json(rs);
+});
 
 module.exports = userRouter;
